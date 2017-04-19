@@ -9,21 +9,27 @@ Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://j
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
 ```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+import org.quartz.JobExecutionContext;  
+import org.quartz.JobExecutionException;  
+import org.springframework.scheduling.quartz.QuartzJobBean;  
+public class Job1 extends QuartzJobBean {  
+  
+private int timeout;  
+private static int i = 0;  
+//调度工厂实例化后，经过timeout时间开始执行调度  
+public void setTimeout(int timeout) {  
+this.timeout = timeout;  
+}  
+  
+/** 
+* 要调度的具体任务 
+*/  
+@Override  
+protected void executeInternal(JobExecutionContext context)  
+throws JobExecutionException {  
+  System.out.println("定时任务执行中…");  
+}  
+}
 ```
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
